@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+
+  #container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  form h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+    <h1>Medicine Form</h1>
+    <form action="Insert" method="GET">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand" required><br><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+
+        <label for="rate">Rate:</label>
+        <input type="number" id="rate" name="rate" required><br><br>
+
+       <!--  <label for="total">Total:</label>
+        <input type="number" id="total" name="total" required><br><br>
+ -->
+        <input type="submit" value="Submit">
+    </form>
+    
+     <form action="Show" method="GET">
+      
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
