@@ -8,23 +8,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Show
- */
-@WebServlet("/Show")
-public class Show extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+@WebServlet("/OutOfStock")
+public class OutOfStock extends HttpServlet {
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		   response.setContentType("text/html");
+		
+		 response.setContentType("text/html");
 	        PrintWriter out = response.getWriter();
 
 	        out.println("<!DOCTYPE html>");
@@ -49,7 +47,7 @@ public class Show extends HttpServlet {
 	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
 	            ResultSet rs = null;
-	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med");
+	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE quantity <= 5");
 	            rs = stmt.executeQuery();
 
 	            out.println("<table>");
@@ -98,6 +96,10 @@ public class Show extends HttpServlet {
 
 	        out.println("</body>");
 	        out.println("</html>");
+		
+		
+	        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+	        rd.include(request, response);
 		
 		
 		

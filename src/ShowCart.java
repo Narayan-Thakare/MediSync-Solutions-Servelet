@@ -14,16 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Show
- */
-@WebServlet("/Show")
-public class Show extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+@WebServlet("/ShowCart")
+public class ShowCart extends HttpServlet {
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+
 		   response.setContentType("text/html");
 	        PrintWriter out = response.getWriter();
 
@@ -49,7 +47,7 @@ public class Show extends HttpServlet {
 	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
 	            ResultSet rs = null;
-	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med");
+	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.cart");
 	            rs = stmt.executeQuery();
 
 	            out.println("<table>");
@@ -61,8 +59,8 @@ public class Show extends HttpServlet {
 	            out.println("<th>Quantity</th>");
 	            out.println("<th>Rate</th>");
 	            out.println("<th>Total</th>");
-	            out.println("<th>Add Medicine</th>");
-	            out.println("<th>Sell Medicine</th>");
+	         //   out.println("<th>Add Medicine</th>");
+	         //   out.println("<th>Sell Medicine</th>");
 
 	            out.println("<th>Edit</th>");
 	            out.println("<th>Delete</th>");
@@ -80,12 +78,12 @@ public class Show extends HttpServlet {
 	                out.println("<td>" + rs.getString(4) + "</td>");
 	                out.println("<td>" + rs.getString(5) + "</td>");
 	                out.println("<td>" + rs.getString(6) + "</td>");
-	                out.println("<td><a href='ShowAddMedicine?id=" + rs.getString("id") + "'>Add Medicine</a></td>");
-	                out.println("<td><a href='ShowSellMedicine?id=" + rs.getString("id") + "'>Sell medicine</a></td>");
+	               // out.println("<td><a href='ShowAddMedicine?id=" + rs.getString("id") + "'>Add Medicine</a></td>");
+	            //    out.println("<td><a href='ShowSellMedicine?id=" + rs.getString("id") + "'>Sell medicine</a></td>");
 
-	                out.println("<td><a href='ShowEdit?id=" + rs.getString("id") + "'>Edit</a></td>");
+	                out.println("<td><a href='ShowCartEdit?id=" + rs.getString("id") + "'>Edit</a></td>");
 
-	                out.println("<td><a href='DeleteRecord?id=" + rs.getString("id") + "'>Delete</a></td>");
+	                out.println("<td><a href='DeleteCart?id=" + rs.getString("id") + "'>Delete</a></td>");
 
 	                out.println("</tr>");
 	            }
@@ -98,6 +96,9 @@ public class Show extends HttpServlet {
 
 	        out.println("</body>");
 	        out.println("</html>");
+		
+		
+		
 		
 		
 		

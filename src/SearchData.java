@@ -14,17 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Show
- */
-@WebServlet("/Show")
-public class Show extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@WebServlet("/SearchData")
+public class SearchData extends HttpServlet {
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		   response.setContentType("text/html");
+        String sn = request.getParameter("searchname");
+
+		
+		 response.setContentType("text/html");
 	        PrintWriter out = response.getWriter();
 
 	        out.println("<!DOCTYPE html>");
@@ -49,7 +47,8 @@ public class Show extends HttpServlet {
 	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
 	            ResultSet rs = null;
-	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med");
+	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE name LIKE ?");
+	            stmt.setString(1, "%" + sn + "%"); // Use '%' before and after the search term
 	            rs = stmt.executeQuery();
 
 	            out.println("<table>");
@@ -98,6 +97,16 @@ public class Show extends HttpServlet {
 
 	        out.println("</body>");
 	        out.println("</html>");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

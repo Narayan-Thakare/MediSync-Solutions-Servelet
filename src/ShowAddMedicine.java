@@ -14,12 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ShowEdit")
-public class ShowEdit extends HttpServlet {
+
+@WebServlet("/ShowAddMedicine")
+public class ShowAddMedicine extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
@@ -54,16 +55,24 @@ public class ShowEdit extends HttpServlet {
                 double rate = rs.getDouble("rate");
                 double total = quantity * rate;
 
-                out.println("<form method='get' action='ShowEditUpadte'>");
+                out.println("<form method='get' action='AddMedicine'>");
                 out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
                 out.println("<label>Name:</label>");
                 out.println("<input type='text' name='name' value='" + name + "'><br>");
-                out.println("<label>Brand:</label>");
-                out.println("<input type='text' name='brand' value='" + brand + "'><br>");
+                out.println("<label></label>");
+                out.println("<input type='hidden' name='brand' value='" + brand + "'><br>");
                 out.println("<label>Quantity:</label>");
                 out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
-                out.println("<label>Rate:</label>");
-                out.println("<input type='text' name='rate' value='" + rate + "'><br>");
+                
+                out.println("<label>New Medicene</label>");
+                out.println("<input type='text' name='newmedicine'><br>");
+                
+                
+                
+                /////////////////////////////////////////////////////
+                
+                out.println("<label></label>");
+                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
                 out.println("<label></label>");
                 out.println("<input type='hidden' name='total' value='" + total + "'><br>");
                 out.println("<input type='submit' value='Update'>");
@@ -77,6 +86,12 @@ public class ShowEdit extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
+		
+		
+		
+		
+		
+		
 		
 		
 		

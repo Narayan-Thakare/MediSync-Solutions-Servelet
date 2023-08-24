@@ -14,11 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ShowEdit")
-public class ShowEdit extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    
+@WebServlet("/ShowCartEdit")
+public class ShowCartEdit extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -43,7 +41,7 @@ public class ShowEdit extends HttpServlet {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
             // Use an SQL query to select a record by ID
-            stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE id = ?");
+            stmt = con.prepareStatement("SELECT * FROM medicine.cart WHERE id = ?");
             stmt.setInt(1, Integer.parseInt(idParam));
             rs = stmt.executeQuery();
 
@@ -54,7 +52,7 @@ public class ShowEdit extends HttpServlet {
                 double rate = rs.getDouble("rate");
                 double total = quantity * rate;
 
-                out.println("<form method='get' action='ShowEditUpadte'>");
+                out.println("<form method='get' action='ShowCartUpdate'>");
                 out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
                 out.println("<label>Name:</label>");
                 out.println("<input type='text' name='name' value='" + name + "'><br>");
@@ -77,9 +75,6 @@ public class ShowEdit extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
-		
-		
-		
 	}
 
 }
