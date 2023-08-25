@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Form Example</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine Dashboard</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -12,7 +13,9 @@
   }
 
   #container {
-    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 800px;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
@@ -20,11 +23,23 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  form {
-    margin-bottom: 20px;
+  .dashboard-items {
+    grid-column: 1 / 2;
+    padding: 0 20px;
   }
 
-  form h1 {
+  .dashboard-buttons {
+    grid-column: 2 / 3;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .dashboard-item {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .dashboard-item h2 {
     font-size: 20px;
     margin-bottom: 10px;
   }
@@ -58,61 +73,59 @@
 </style>
 </head>
 <body>
-    <h1>Medicine Form</h1>
-    <form action="Insert" method="GET">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+<div id="container">
+    <div class="dashboard-items">
+        <h1>Medicine Dashboard</h1>
 
-        <label for="brand">Brand:</label>
-        <input type="text" id="brand" name="brand" required><br><br>
+        <div class="dashboard-item">
+            <h2>Add Medicine</h2>
+            <form action="AddMed" method="GET">
+                <input type="submit" value="Add Medicine">
+            </form>
+        </div>
+    </div>
 
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required><br><br>
+    <div class="dashboard-buttons">
+        <div class="dashboard-item">
+            <h2>Actions</h2>
+            <form action="Show" method="GET">
+                <input type="submit" value="Show Data">
+            </form>
 
-        <label for="rate">Rate:</label>
-        <input type="number" id="rate" name="rate" required><br><br>
+            <form action="SearchData" method="GET">
+                <label for="searchname">Search Product</label>
+                <input type="text" id="searchname" name="searchname" required><br>
+                <input type="submit" value="Search">
+            </form>
 
-       <!--  <label for="total">Total:</label>
-        <input type="number" id="total" name="total" required><br><br>
- -->
-        <input type="submit" value="Submit">
-    </form>
-    
-     <form action="Show" method="GET">
-      
-        <input type="submit" value="Show Data">
-    </form>
-    
-    
-    <form action="SearchData" method="GET">
-        <label for="name">Search Product</label>
-        <input type="text" id="searchname" name="searchname" required><br><br>
+            <form action="OutOfStock" method="GET">
+                <input type="submit" value="Out Of Stock">
+            </form>
 
-       
-        <input type="submit" value="Submit">
-    </form>
-    
-      <form action="OutOfStock" method="GET">
-      
-        <input type="submit" value="Out Of Stock">
-    </form>
-    
-    
-     <form action="history" method="GET">
-      
-        <input type="submit" value="History">
-    </form>
-    
-    
-     <form action="CartForm" method="GET">
-      
-        <input type="submit" value="Add to Cart">
-    </form>
-    
-     <form action="ShowCart" method="GET">
-      
-        <input type="submit" value="ShowCart">
-    </form>
-    
+            <form action="history" method="GET">
+                <input type="submit" value="History">
+            </form>
+
+            <form action="ShowBill" method="GET">
+                <input type="submit" value="Show Bill">
+            </form>
+        </div>
+
+        <div class="dashboard-item">
+            <h2>Shopping Cart</h2>
+            <form action="CartForm" method="GET">
+                <input type="submit" value="Add to Cart">
+            </form>
+
+            <form action="ShowCart" method="GET">
+                <input type="submit" value="Show Cart">
+            </form>
+
+            <form action="ClientHistory" method="GET">
+                <input type="submit" value="Client History">
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -27,6 +27,9 @@ public class sellmedicine extends HttpServlet {
 		  String name = request.getParameter("name");
 	        String brand = request.getParameter("brand");
 	        String stquantity = request.getParameter("quantity");
+	        String billquantity = request.getParameter("billquantity");
+
+	        
 	        ////////////////////////////////////////////////////////
 	        
 	        String stsellmedicine = request.getParameter("sellmedicine");
@@ -40,11 +43,25 @@ public class sellmedicine extends HttpServlet {
 	        double rate = Double.parseDouble(strate);
 	     
 	        int addnewQuantity=quantity-newquantity;
+	        int intbillquantity = Integer.parseInt(billquantity);
 
-	        
+	        double billtotal = intbillquantity * rate;
+
 	        
 	        double total = addnewQuantity * rate;
 	       // String totalAsString = String.valueOf(total);
+	        
+	        
+	        
+	        
+	        //////////////////////////////////////////////////////////////
+	        
+	        
+	        
+	        
+	        
+	        
+	        /////////////////////////////////////////////////////////
 
 
 	        try {
@@ -68,12 +85,37 @@ public class sellmedicine extends HttpServlet {
 
 
 	            int rowsUpdated = updateStmt.executeUpdate();
+	            
+	            
+	            PreparedStatement stmt = con.prepareStatement("INSERT INTO bill (name, brand, quantity, rate, total) VALUES (?, ?, ?, ?, ?)");
+	            stmt.setString(1, name);
+	            stmt.setString(2, brand);
+	            stmt.setInt(3, quantity);
+	            stmt.setDouble(4, rate);
+	            stmt.setDouble(5, billtotal);
+
+	            int a = stmt.executeUpdate();
+	            if (a > 0) {
+	             //   out.println("Data inserted successfully.");
+	            //    response.sendRedirect("ShowSellMedicine");
+	            } else {
+	                out.println("Data insertion failed.");
+	            }
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
 
 	            if (rowsUpdated > 0) {
 	                out.println("<h2>Record updated successfully!</h2>");
 	                
 	                // Redirect the user to the "Show" page after a successful update
-	                response.sendRedirect("Show");
+	                response.sendRedirect("index.html");
 	            } else {
 	                out.println("<h2>Record not found or update failed.</h2>");
 	            }

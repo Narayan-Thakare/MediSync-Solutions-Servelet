@@ -61,8 +61,33 @@ public class ShowSellMedicine extends HttpServlet {
 	                out.println("<label>Quantity:</label>");
 	                out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
 	                
-	                out.println("<label>New Medicene</label>");
+	                out.println("<label>Sell Medicene</label>");
 	                out.println("<input type='text' name='sellmedicine'><br>");
+	                
+	                out.println("<label>Conform Quantity</label>");
+	                out.println("<input type='text' name='billquantity'><br>");
+	                
+	                out.println("<label></label>");
+	                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
+	                out.println("<label></label>");
+	                out.println("<input type='hidden' name='total' value='" + total + "'><br>");
+	                out.println("<input type='submit' value='Update'>");
+	                out.println("</form>");
+	                
+	              //////////////////////////////////////////////////////////////////  
+	                
+	                
+	              /*  out.println("<form method='get' action='AddOnBILL'>");
+	                out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
+	                out.println("<label>Name:</label>");
+	                out.println("<input type='hidden' name='name' value='" + name + "'><br>");
+	                out.println("<label></label>");
+	                out.println("<input type='hidden' name='brand' value='" + brand + "'><br>");
+	               // out.println("<label>Quantity:</label>");
+	              //  out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
+	                
+	                out.println("<label>Conform Quantity</label>");
+	                out.println("<input type='text' name='quantity'><br>");
 	                
 	                
 	                
@@ -72,8 +97,15 @@ public class ShowSellMedicine extends HttpServlet {
 	                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
 	                out.println("<label></label>");
 	                out.println("<input type='hidden' name='total' value='" + total + "'><br>");
-	                out.println("<input type='submit' value='Update'>");
+	                out.println("<input type='submit' value='Add On Bill'>");
 	                out.println("</form>");
+	                */
+	                
+	                
+	                
+	                
+	                
+	                
 	            } else {
 	                out.println("Record not found.");
 	            }
