@@ -24,7 +24,7 @@ public class AddMed extends HttpServlet {
         out.println("<head>");
         out.println("<meta charset=\"UTF-8\">");
         out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-        out.println("<title>Add Medication</title>");
+        out.println("<title>Add Medicine</title>");
         out.println("<style>");
         out.println("body {");
         out.println("  font-family: Arial, sans-serif;");
@@ -43,7 +43,7 @@ public class AddMed extends HttpServlet {
         out.println("  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);");
         out.println("  border-radius: 5px;");
         out.println("  padding: 20px;");
-        out.println("  width: 300px;");
+        out.println("  width: 1500px;"); // Adjusted width for better visibility
         out.println("}");
 
         out.println("h1 { text-align: center; }");
@@ -57,7 +57,12 @@ public class AddMed extends HttpServlet {
         out.println("  border-radius: 3px;");
         out.println("}");
 
-        // Style for the submit button
+        // Style for the submit button with center alignment
+        out.println(".center-align {");
+        out.println("  display: flex;");
+        out.println("  justify-content: center;");
+        out.println("}");
+
         out.println("input[type=\"submit\"] {");
         out.println("  background-color: #007bff;");
         out.println("  color: #fff;");
@@ -68,6 +73,19 @@ public class AddMed extends HttpServlet {
         out.println("}");
 
         out.println("input[type=\"submit\"]:hover { background-color: #0056b3; }");
+        
+        
+        out.println(".header {");
+        out.println("  font-size: 20px;");
+        out.println("  font-weight: bold;");
+        out.println("  text-align: center;");
+        
+        
+        
+        
+        
+        out.println("}");
+        
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
@@ -89,15 +107,16 @@ public class AddMed extends HttpServlet {
         out.println("<label for=\"rate\">Rate:</label>");
         out.println("<input type=\"number\" id=\"rate\" name=\"rate\" required><br>");
 
-        out.println("<input type=\"submit\" value=\"Add\">");
+        // Center-align the submit button
+        out.println("<div class=\"center-align\">");
+        out.println("<input type=\"submit\" value=\"Add Medicine\">");
+        out.println("</div>");
+
         out.println("</form>");
         out.println("</div>");
 
         // HTML document end
         out.println("</body>");
         out.println("</html>");
-        
-        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-        rd.include(request, response);
     }
 }

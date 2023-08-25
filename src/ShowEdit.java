@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,11 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ShowEdit")
 public class ShowEdit extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         String idParam = request.getParameter("id");
@@ -28,7 +25,17 @@ public class ShowEdit extends HttpServlet {
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
+        out.println("<meta charset=\"UTF-8\">");
         out.println("<title>Edit Record</title>");
+        out.println("<style>");
+        out.println("body { font-family: Arial, sans-serif; background-color: #f2f2f2; text-align: center; margin: 0; padding: 0; }");
+        out.println("h1 { background-color: #007bff; color: #fff; padding: 10px 0; }");
+        out.println("form { max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }");
+        out.println("label { display: block; margin-bottom: 10px; font-weight: bold; }");
+        out.println("input[type='text'] { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }");
+        out.println("input[type='submit'] { background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }");
+        out.println("input[type='submit']:hover { background-color: #0056b3; }");
+        out.println("</style>");
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>Edit Record</h1>");
@@ -66,7 +73,7 @@ public class ShowEdit extends HttpServlet {
                 out.println("<input type='text' name='rate' value='" + rate + "'><br>");
                 out.println("<label></label>");
                 out.println("<input type='hidden' name='total' value='" + total + "'><br>");
-                out.println("<input type='submit' value='Update'>");
+                out.println("<input type='submit' value='Edit'>");
                 out.println("</form>");
             } else {
                 out.println("Record not found.");
@@ -77,9 +84,5 @@ public class ShowEdit extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
-		
-		
-		
-	}
-
+    }
 }

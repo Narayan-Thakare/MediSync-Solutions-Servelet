@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -14,14 +12,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/ShowAddMedicine")
 public class ShowAddMedicine extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html");
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         String idParam = request.getParameter("id");
@@ -30,8 +28,18 @@ public class ShowAddMedicine extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Edit Record</title>");
+        out.println("<style>");
+        out.println("body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;}");
+        out.println(".container { max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}");
+        out.println("h1 { text-align: center;}");
+        out.println("form { text-align: left;}");
+        out.println("label { display: block; margin-top: 10px;}");
+        out.println("input[type='text'] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px;}");
+        out.println("input[type='submit'] { background-color: #007BFF; color: #fff; border: none; padding: 10px 20px; border-radius: 3px; cursor: pointer;}");
+        out.println("</style>");
         out.println("</head>");
         out.println("<body>");
+        out.println("<div class='container'>");
         out.println("<h1>Edit Record</h1>");
 
         Connection con = null;
@@ -57,44 +65,27 @@ public class ShowAddMedicine extends HttpServlet {
 
                 out.println("<form method='get' action='AddMedicine'>");
                 out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
-                out.println("<label>Name:</label>");
-                out.println("<input type='text' name='name' value='" + name + "'><br>");
-                out.println("<label></label>");
-                out.println("<input type='hidden' name='brand' value='" + brand + "'><br>");
-                out.println("<label>Quantity:</label>");
-                out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
-                
-                out.println("<label>New Medicene</label>");
-                out.println("<input type='text' name='newmedicine'><br>");
-                
-                
-                
-                /////////////////////////////////////////////////////
-                
-                out.println("<label></label>");
-                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
-                out.println("<label></label>");
-                out.println("<input type='hidden' name='total' value='" + total + "'><br>");
+                out.println("<label for='name'>Name:</label>");
+                out.println("<input type='text' id='name' name='name' value='" + name + "'>");
+                out.println("<label for='brand'>Brand:</label>");
+                out.println("<input type='text' id='brand' name='brand' value='" + brand + "' disabled>");
+                out.println("<label for='quantity'>Quantity:</label>");
+                out.println("<input type='text' id='quantity' name='quantity' value='" + quantity + "'>");
+                out.println("<label for='newmedicine'>New Medicine:</label>");
+                out.println("<input type='text' id='newmedicine' name='newmedicine'><br>");
+                out.println("<input type='hidden' name='rate' value='" + rate + "'>");
+                out.println("<input type='hidden' name='total' value='" + total + "'>");
                 out.println("<input type='submit' value='Update'>");
                 out.println("</form>");
             } else {
-                out.println("Record not found.");
+                out.println("<p>Record not found.</p>");
             }
         } catch (ClassNotFoundException | SQLException | NumberFormatException e) {
             e.printStackTrace();
         }
 
+        out.println("</div>");
         out.println("</body>");
         out.println("</html>");
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
-
+    }
 }

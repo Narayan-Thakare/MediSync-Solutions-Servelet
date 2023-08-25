@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -15,94 +13,96 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/OutOfStock")
 public class OutOfStock extends HttpServlet {
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		 response.setContentType("text/html");
-	        PrintWriter out = response.getWriter();
 
-	        out.println("<!DOCTYPE html>");
-	        out.println("<html>");
-	        out.println("<head>");
-	        out.println("<style>");
-	        out.println("table { border-collapse: collapse; width: 70%; margin: auto; }");
-	        out.println("th, td { border: 1px solid black; padding: 8px; text-align: left; }");
-	        out.println("th { background-color: #f2f2f2; }");
-	        out.println("</style>");
-	        out.println("</head>");
-	        out.println("<body>");
-	        out.println("<h1>Welcome Narayan</h1>");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
-	        } catch (ClassNotFoundException e) {
-	            e.printStackTrace();
-	        }
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-	        try {
-	            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<meta charset=\"UTF-8\">");
+        out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+        out.println("<title>Out of Stock Medicines</title>");
+        out.println("<style>");
+        out.println("body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }");
+        out.println("h1 { text-align: center; padding: 20px; background-color: #333; color: #fff; }");
+        out.println("table { border-collapse: collapse; width: 80%; margin: auto; background-color: #fff; }");
+        out.println("th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }");
+        out.println("th { background-color: #f2f2f2; }");
+        out.println("tr:nth-child(even) { background-color: #f2f2f2; }");
+        out.println("a { text-decoration: none; color: #333; }");
+        out.println("</style>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Out of Stock Medicines</h1>");
 
-	            ResultSet rs = null;
-	            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE quantity <= 5");
-	            rs = stmt.executeQuery();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
-	            out.println("<table>");
-	            out.println("<tr>");
-	            out.println("<th>ID</th>");
+        try {
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
-	            out.println("<th>Medicine Name</th>");
-	            out.println("<th>Brand</th>");
-	            out.println("<th>Quantity</th>");
-	            out.println("<th>Rate</th>");
-	            out.println("<th>Total</th>");
-	            out.println("<th>Add Medicine</th>");
-	            out.println("<th>Sell Medicine</th>");
+            ResultSet rs = null;
+            PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE quantity <= 5");
+            rs = stmt.executeQuery();
 
-	            out.println("<th>Edit</th>");
-	            out.println("<th>Delete</th>");
-	            out.println("</tr>");
+            out.println("<table>");
+            out.println("<tr>");
+            out.println("<th>ID</th>");
+            out.println("<th>Medicine Name</th>");
+            out.println("<th>Brand</th>");
+            out.println("<th>Quantity</th>");
+            out.println("<th>Rate</th>");
+            out.println("<th>Total</th>");
+            out.println("<th>Add Medicine</th>");
+            out.println("<th>Sell Medicine</th>");
+            out.println("<th>Edit</th>");
+            out.println("<th>Delete</th>");
+            out.println("</tr>");
 
-	            while (rs.next()) {
-	            	
-	                int id = rs.getInt(1); 
+            while (rs.next()) {
+                int id = rs.getInt(1);
 
-	                out.println("<tr>");
-	                out.println("<td>" + id + "</td>");
+                out.println("<tr>");
+                out.println("<td>" + id + "</td>");
+                out.println("<td>" + rs.getString(2) + "</td>");
+                out.println("<td>" + rs.getString(3) + "</td>");
+                out.println("<td>" + rs.getString(4) + "</td>");
+                out.println("<td>" + rs.getString(5) + "</td>");
+                out.println("<td>" + rs.getString(6) + "</td>");
+                out.println("<td><a href='ShowAddMedicine?id=" + rs.getString("id") + "'>Add Medicine</a></td>");
+                out.println("<td><a href='ShowSellMedicine?id=" + rs.getString("id") + "'>Sell medicine</a></td>");
+                out.println("<td><a href='ShowEdit?id=" + rs.getString("id") + "'>Edit</a></td>");
+                out.println("<td><a href='DeleteRecord?id=" + rs.getString("id") + "'>Delete</a></td>");
+                out.println("</tr>");
+            }
 
-	                out.println("<td>" + rs.getString(2) + "</td>");
-	                out.println("<td>" + rs.getString(3) + "</td>");
-	                out.println("<td>" + rs.getString(4) + "</td>");
-	                out.println("<td>" + rs.getString(5) + "</td>");
-	                out.println("<td>" + rs.getString(6) + "</td>");
-	                out.println("<td><a href='ShowAddMedicine?id=" + rs.getString("id") + "'>Add Medicine</a></td>");
-	                out.println("<td><a href='ShowSellMedicine?id=" + rs.getString("id") + "'>Sell medicine</a></td>");
+            out.println("</table>");
 
-	                out.println("<td><a href='ShowEdit?id=" + rs.getString("id") + "'>Edit</a></td>");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-	                out.println("<td><a href='DeleteRecord?id=" + rs.getString("id") + "'>Delete</a></td>");
 
-	                out.println("</tr>");
-	            }
+//        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+//        rd.include(request, response);
+        
+        
+        out.println("</body>");
+        out.println("</html>");
 
-	            out.println("</table>");
+        // Adding a back link to return to the index page
+        out.println("<div style='text-align:center; padding: 20px;'>");
+        out.println("<a href='index.html'>Back to Home</a>");
+        out.println("</div>");
 
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        }
-
-	        out.println("</body>");
-	        out.println("</html>");
-		
-		
-	        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-	        rd.include(request, response);
-		
-		
-		
-	}
-
+    }
 }

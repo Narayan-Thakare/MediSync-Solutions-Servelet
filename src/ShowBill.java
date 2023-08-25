@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,26 +27,27 @@ public class ShowBill extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset=\"UTF-8\">");
-        out.println("<title>Medicine Inventory</title>");
+        out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+        out.println("<title>Medicine Inventory - Bill</title>");
         out.println("<style>");
-        out.println("body {");
-        out.println("  font-family: 'Arial', sans-serif;");
-        out.println("  background-image: url('your-background-image.jpg');"); // Replace with your image path
-        out.println("  background-size: cover;");
-        out.println("  background-repeat: no-repeat;");
-        out.println("  margin: 0;");
-        out.println("}");
+        out.println("body { font-family: Arial, sans-serif; background-image: url('your-background-image.jpg'); background-size: cover; background-repeat: no-repeat; margin: 0; padding: 0; }");
         out.println("header { background-color: #007bff; color: #fff; padding: 10px 0; text-align: center; }");
         out.println("h1 { margin: 20px 0; text-align: center; }");
         out.println("table { border-collapse: collapse; width: 90%; margin: auto; background-color: white; }");
         out.println("th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }");
         out.println("th { background-color: #f2f2f2; }");
         out.println("a { text-decoration: none; color: #007bff; }");
-        out.println("a:hover { text-decoration: underline; }");        out.println("</style>");
+        out.println("a:hover { text-decoration: underline; }");
+        out.println("form { margin: 20px auto; max-width: 400px; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }");
+        out.println("label { display: block; margin-bottom: 10px; }");
+        out.println("input[type=\"text\"] { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }");
+        out.println("input[type=\"submit\"] { background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }");
+        out.println("input[type=\"submit\"]:hover { background-color: #0056b3; }");
+        out.println("</style>");
         out.println("</head>");
         out.println("<body>");
         out.println("<header>");
-        out.println("<h1>Medicine Inventory</h1>");
+        out.println("<h1>Medicine Inventory - Bill</h1>");
         out.println("</header>");
 
         try {
@@ -61,19 +61,6 @@ public class ShowBill extends HttpServlet {
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
-            
-           
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             ResultSet rs = null;
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.bill");
             rs = stmt.executeQuery();
@@ -110,50 +97,36 @@ public class ShowBill extends HttpServlet {
             out.println("</tr>");
 
             out.println("</table>");
-            
-            
-            
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         LocalDateTime currentTime = LocalDateTime.now();
-        
+
         // Format the current time as a string
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedTime = currentTime.format(formatter);
 
         // Display the current time on the page
-     //   out.println("<p>Current Time: " + formattedTime + "</p>");
-
-        
-        
-        
+        out.println("<h2>Bill Details</h2>");
         out.println("<form action=\"CostumerHistory\" method=\"GET\">");
-        out.println("<h1>Billing</h1>");
-
-        out.println("<label for=\"name\">Costmer Name</label>");
+        out.println("<label for=\"name\">Customer Name</label>");
         out.println("<input type=\"text\" id=\"name\" name=\"name\" required><br>");
 
-        out.println("<label for=\"brand\">Dr Name</label>");
-        out.println("<input type=\"text\" id=\"brand\" name=\"drname\" required><br>");
+        out.println("<label for=\"drname\">Doctor Name</label>");
+        out.println("<input type=\"text\" id=\"drname\" name=\"drname\" required><br>");
 
         out.println("<label>Total</label>");
-        out.println("<input type='text' name='total' value='" + total + "'><br>");
-        
-        out.println("<label></label>");
-        out.println("<input type='hidden' name='time' value='" + formattedTime + "'><br>");
-        
+        out.println("<input type='text' name='total' value='" + total + "' disabled><br>");
+
+        out.println("<label>Time</label>");
+        out.println("<input type='text' name='time' value='" + formattedTime + "' disabled><br>");
+
         out.println("<input type=\"submit\" value=\"Pay\">");
         out.println("</form>");
-        
-        
-        
+
         out.println("</body>");
         out.println("</html>");
-
-//        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-//        rd.include(request, response);
     }
 }

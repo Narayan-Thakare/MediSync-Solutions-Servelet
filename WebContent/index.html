@@ -1,8 +1,8 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Medicine Dashboard</title>
 <style>
   body {
@@ -71,6 +71,8 @@
     background-color: #0056b3;
   }
 </style>
+
+
 </head>
 <body>
 <div id="container">
@@ -80,7 +82,9 @@
         <div class="dashboard-item">
             <h2>Add Medicine</h2>
             <form action="AddMed" method="GET">
-                <input type="submit" value="Add Medicine">
+                
+                                <input type="submit" value="Add Medicine">
+                
             </form>
         </div>
     </div>
@@ -103,11 +107,14 @@
             </form>
 
             <form action="history" method="GET">
-                <input type="submit" value="History">
+                <input type="submit" value="Medicine History">
             </form>
-
-            <form action="ShowBill" method="GET">
+            
+              <form action="ShowBill" method="GET">
                 <input type="submit" value="Show Bill">
+                
+                
+               
             </form>
         </div>
 
@@ -119,13 +126,15 @@
 
             <form action="ShowCart" method="GET">
                 <input type="submit" value="Show Cart">
+                
+             
             </form>
-
-            <form action="ClientHistory" method="GET">
+                 <form action="ClientHistory" method="GET">
                 <input type="submit" value="Client History">
-            </form>
         </div>
     </div>
 </div>
+
 </body>
 </html>
+
