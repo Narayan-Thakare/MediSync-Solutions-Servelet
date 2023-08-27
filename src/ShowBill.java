@@ -69,7 +69,7 @@ public class ShowBill extends HttpServlet {
             out.println("<tr>");
             out.println("<th>ID</th>");
             out.println("<th>Medicine Name</th>");
-            out.println("<th>Brand</th>");
+            out.println("<th>Dr name</th>");
             out.println("<th>Quantity</th>");
             out.println("<th>Rate</th>");
             out.println("<th>Total</th>");
@@ -111,6 +111,7 @@ public class ShowBill extends HttpServlet {
         // Display the current time on the page
         out.println("<h2>Bill Details</h2>");
         out.println("<form action=\"CostumerHistory\" method=\"GET\">");
+        
         out.println("<label for=\"name\">Customer Name</label>");
         out.println("<input type=\"text\" id=\"name\" name=\"name\" required><br>");
 
@@ -118,10 +119,10 @@ public class ShowBill extends HttpServlet {
         out.println("<input type=\"text\" id=\"drname\" name=\"drname\" required><br>");
 
         out.println("<label>Total</label>");
-        out.println("<input type='text' name='total' value='" + total + "' disabled><br>");
+        out.println("<input type='text' name='total' value='" + total + "'><br>");
 
         out.println("<label>Time</label>");
-        out.println("<input type='text' name='time' value='" + formattedTime + "' disabled><br>");
+        out.println("<input type='text' name='time' value='" + formattedTime + "'><br>");
 
         out.println("<input type=\"submit\" value=\"Pay\">");
         out.println("</form>");

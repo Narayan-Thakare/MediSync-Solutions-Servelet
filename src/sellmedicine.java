@@ -22,7 +22,8 @@ public class sellmedicine extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-		out.print("narayan");
+		try {
+	//	out.print("narayan");
 		  String eid = request.getParameter("eid");
 		  String name = request.getParameter("name");
 	        String brand = request.getParameter("brand");
@@ -52,9 +53,7 @@ public class sellmedicine extends HttpServlet {
 	       // String totalAsString = String.valueOf(total);
 	        
 	        
-	        
-	        
-	        //////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////
 	        
 	        
 	        
@@ -96,8 +95,8 @@ public class sellmedicine extends HttpServlet {
 
 	            int a = stmt.executeUpdate();
 	            if (a > 0) {
-	             //   out.println("Data inserted successfully.");
-	            //    response.sendRedirect("ShowSellMedicine");
+	             //  out.println("Data inserted successfully.");
+	              // response.sendRedirect("index.html");
 	            } else {
 	                out.println("Data insertion failed.");
 	            }
@@ -125,7 +124,12 @@ public class sellmedicine extends HttpServlet {
 	        }
 		
 		
-		
+		} catch (NumberFormatException e) {
+		    // Handle the NumberFormatException here, e.g., by displaying an error message to the user.
+		    out.println("<h2>Error: Invalid number format.</h2>");
+		}
+	        
+	        
 		
 		
 		
