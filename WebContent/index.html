@@ -1,140 +1,164 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Medicine Dashboard</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
+    <meta charset="UTF-8">
+    <title>Medicine Dashboard</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, form {
+            margin: 0;
+            padding: 0;
+        }
 
-  #container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
 
-  .dashboard-items {
-    grid-column: 1 / 2;
-    padding: 0 20px;
-  }
+        /* Header styles */
+        .header {
+            background-color: #007bff;
+            color: #mnp;
+            padding: 10px 0;
+            text-align: center;
+        }
 
-  .dashboard-buttons {
-    grid-column: 2 / 3;
-    padding: 0 20px;
-    text-align: center;
-  }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
 
-  .dashboard-item {
-    margin-bottom: 20px;
-    text-align: center;
-  }
+        /* Container styles */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-  .dashboard-item h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+        /* Dashboard grid styles */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
+        /* Dashboard item styles */
+        .dashboard-item {
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
 
-  input[type="text"],
-  input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
+        .dashboard-item:hover {
+            background-color: #fff;
+        }
 
-  input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+        .dashboard-item h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
 
-  input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-</style>
+        /* Form styles */
+        form {
+            margin-top: 15px;
+        }
 
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
 
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #007bff;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<div id="container">
-    <div class="dashboard-items">
-        <h1>Medicine Dashboard</h1>
-
-        <div class="dashboard-item">
-            <h2>Add Medicine</h2>
-            <form action="AddMed" method="GET">
-                
-                                <input type="submit" value="Add Medicine">
-                
-            </form>
+    <header class="header">
+        <div class="container">
+            <h1>Medicine Dashboard</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="dashboard">
+            <div class="dashboard-item">
+                <h2>Add Medicine</h2>
+                <form action="AddMed" method="GET">
+                    <input type="submit" value="Add Medicine" class="btn-primary">
+                </form>
+            </div>
+            <div class="dashboard-item">
+                <h2>Actions</h2>
+                <form action="Show" method="GET">
+                    <input type="submit" value="Show Data" class="btn-primary">
+                </form>
+                <form action="SearchData" method="GET">
+                    <label for="searchname">Search Product</label>
+                    <input type="text" id="searchname" name="searchname" required>
+                    <input type="submit" value="Search" class="btn-primary">
+                </form>
+                <form action="OutOfStock" method="GET">
+                    <input type="submit" value="Out Of Stock" class="btn-primary">
+                </form>
+                <form action="history" method="GET">
+                    <input type="submit" value="Medicine History" class="btn-primary">
+                </form>
+            </div>
+            <div class="dashboard-item">
+                <h2>Shopping Cart</h2>
+                <form action="CartForm" method="GET">
+                    <input type="submit" value="Add to Cart" class="btn-primary">
+                </form>
+                <form action="ShowCart" method="GET">
+                    <input type="submit" value="Show Cart" class="btn-primary">
+                </form>
+                <form action="ClientHistory" method="GET">
+                    <input type="submit" value="Client History" class="btn-primary">
+                </form>
+            </div>
+            <div class="dashboard-item">
+                <h2>Billing</h2>
+                <form action="ShowBill" method="GET">
+                    <input type="submit" value="Show Bill" class="btn-primary">
+                </form>
+            </div>
         </div>
     </div>
-
-    <div class="dashboard-buttons">
-        <div class="dashboard-item">
-            <h2>Actions</h2>
-            <form action="Show" method="GET">
-                <input type="submit" value="Show Data">
-            </form>
-
-            <form action="SearchData" method="GET">
-                <label for="searchname">Search Product</label>
-                <input type="text" id="searchname" name="searchname" required><br>
-                <input type="submit" value="Search">
-            </form>
-
-            <form action="OutOfStock" method="GET">
-                <input type="submit" value="Out Of Stock">
-            </form>
-
-            <form action="history" method="GET">
-                <input type="submit" value="Medicine History">
-            </form>
-            
-              <form action="ShowBill" method="GET">
-                <input type="submit" value="Show Bill">
-                
-                
-               
-            </form>
-        </div>
-
-        <div class="dashboard-item">
-            <h2>Shopping Cart</h2>
-            <form action="CartForm" method="GET">
-                <input type="submit" value="Add to Cart">
-            </form>
-
-            <form action="ShowCart" method="GET">
-                <input type="submit" value="Show Cart">
-                
-             
-            </form>
-                 <form action="ClientHistory" method="GET">
-                <input type="submit" value="Client History">
-        </div>
-    </div>
-</div>
-
 </body>
 </html>
-

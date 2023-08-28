@@ -28,6 +28,7 @@ public class ShowAddMedicine extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Edit Record</title>");
+        
         out.println("<style>");
         out.println("body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;}");
         out.println(".container { max-width: 600px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}");
@@ -68,7 +69,7 @@ public class ShowAddMedicine extends HttpServlet {
                 out.println("<label for='name'>Name:</label>");
                 out.println("<input type='text' id='name' name='name' value='" + name + "'>");
                 out.println("<label for='brand'>Brand:</label>");
-                out.println("<input type='text' id='brand' name='brand' value='" + brand + "' disabled>");
+                out.println("<input type='text' id='brand' name='brand' value='" + brand + "'>");
                 out.println("<label for='quantity'>Quantity:</label>");
                 out.println("<input type='text' id='quantity' name='quantity' value='" + quantity + "'>");
                 out.println("<label for='newmedicine'>New Medicine:</label>");

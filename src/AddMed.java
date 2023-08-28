@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +24,9 @@ public class AddMed extends HttpServlet {
         out.println("<meta charset=\"UTF-8\">");
         out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
         out.println("<title>Add Medicine</title>");
+        out.println("<style>");
+        out.println("/* Your CSS styles here */");
+        
         out.println("<style>");
         out.println("body {");
         out.println("  font-family: Arial, sans-serif;");
@@ -87,10 +89,22 @@ public class AddMed extends HttpServlet {
         out.println("}");
         
         out.println("</style>");
+        out.println("</style>");
         out.println("</head>");
         out.println("<body>");
 
-        // Form for adding medication
+        // Header with a back button
+        out.println("<header class=\"header\">");
+        out.println("<div class=\"container\">");
+        out.println("<h1>Medicine Dashboard</h1>");
+        
+        // Back button
+        out.println("<a href=\"javascript:history.back()\" class=\"back-button\">Back</a>");
+
+        out.println("</div>");
+        out.println("</header>");
+
+        // Form for adding medication (your existing form)
         out.println("<div class=\"form-container\">");
         out.println("<form action=\"Insert\" method=\"GET\">");
         out.println("<h1>Add Medication</h1>");
@@ -107,7 +121,7 @@ public class AddMed extends HttpServlet {
         out.println("<label for=\"rate\">Rate:</label>");
         out.println("<input type=\"number\" id=\"rate\" name=\"rate\" required><br>");
 
-        // Center-align the submit button
+        // Submit button
         out.println("<div class=\"center-align\">");
         out.println("<input type=\"submit\" value=\"Add Medicine\">");
         out.println("</div>");

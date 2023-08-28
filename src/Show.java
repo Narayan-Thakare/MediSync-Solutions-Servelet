@@ -43,6 +43,16 @@ public class Show extends HttpServlet {
         out.println("th { background-color: #f2f2f2; }");
         out.println("a { text-decoration: none; color: #007bff; }");
         out.println("a:hover { text-decoration: underline; }");
+        out.println(".back-button {");
+        out.println("  background-color: #007bff;");
+        out.println("  color: #fff;");
+        out.println("  padding: 10px 15px;");
+        out.println("  text-align: center;");
+        out.println("  display: inline-block;");
+        out.println("  margin-top: 10px;");
+        out.println("  border-radius: 5px;");
+        out.println("  text-decoration: none;");
+        out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
@@ -62,6 +72,8 @@ public class Show extends HttpServlet {
             ResultSet rs = null;
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med");
             rs = stmt.executeQuery();
+
+            out.println("<a href='index.html' class='back-button'>Back</a>");
 
             out.println("<table>");
             out.println("<tr>");
@@ -102,8 +114,9 @@ public class Show extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
+
         
-        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
-        rd.include(request, response);
+//        RequestDispatcher rd = request.getRequestDispatcher("/index.html");
+//        rd.include(request, response);
     }
 }
