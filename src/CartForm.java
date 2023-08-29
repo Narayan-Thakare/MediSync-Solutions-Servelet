@@ -28,9 +28,22 @@ public class CartForm extends HttpServlet {
         out.println("input[type='text'], input[type='number'] { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; }");
         out.println("input[type='submit'] { background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }");
         out.println("input[type='submit']:hover { background-color: #0056b3; }");
+        out.println(".back-button {");
+        out.println("  display: block;");
+        out.println("  width: 100px;");
+        out.println("  margin: 20px auto;");
+        out.println("  padding: 10px 15px;");
+        out.println("  background-color: #007bff;");
+        out.println("  color: #fff;");
+        out.println("  border-radius: 4px;");
+        out.println("  text-decoration: none;");
+        out.println("  float: left;"); // Add this CSS property to move the button to the left
+        out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
+
+        out.println("<a href='index.html' class='back-button'>Back</a>");
 
         out.println("<h1>Cart Form</h1>");
 
@@ -52,5 +65,7 @@ public class CartForm extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
+
+
     }
 }

@@ -34,6 +34,7 @@ public class sellmedicine extends HttpServlet {
 	        ////////////////////////////////////////////////////////
 	        
 	        String stsellmedicine = request.getParameter("sellmedicine");
+	   
 	        int newquantity = Integer.parseInt(stsellmedicine);
 
 	        ////////////////////////////////////////////////////////
@@ -89,7 +90,7 @@ public class sellmedicine extends HttpServlet {
 	            PreparedStatement stmt = con.prepareStatement("INSERT INTO bill (name, brand, quantity, rate, total) VALUES (?, ?, ?, ?, ?)");
 	            stmt.setString(1, name);
 	            stmt.setString(2, brand);
-	            stmt.setInt(3, quantity);
+	            stmt.setInt(3, intbillquantity);
 	            stmt.setDouble(4, rate);
 	            stmt.setDouble(5, billtotal);
 

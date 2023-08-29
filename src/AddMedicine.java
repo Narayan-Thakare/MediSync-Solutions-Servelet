@@ -76,7 +76,7 @@ public class AddMedicine extends HttpServlet {
 	                out.println("<h2>Record updated successfully!</h2>");
 	                
 	                // Redirect the user to the "Show" page after a successful update
-	                response.sendRedirect("Show");
+	                response.sendRedirect("history");
 	            } else {
 	                out.println("<h2>Record not found or update failed.</h2>");
 	            }

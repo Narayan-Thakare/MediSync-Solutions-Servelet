@@ -34,10 +34,23 @@ public class ShowCart extends HttpServlet {
         out.println("th { background-color: #f2f2f2; }");
         out.println("a { text-decoration: none; color: #007bff; }");
         out.println("a:hover { text-decoration: underline; }");
+        out.println(".back-button {");
+        out.println("  display: block;");
+        out.println("  width: 100px;");
+        out.println("  margin: 20px auto;");
+        out.println("  padding: 10px 15px;");
+        out.println("  background-color: #007bff;");
+        out.println("  color: #fff;");
+        out.println("  border-radius: 4px;");
+        out.println("  text-decoration: none;");
+        out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>Cart</h1>");
+
+        // Add the Back button
+        out.println("<a href='index.html' class='back-button'>Back</a>");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

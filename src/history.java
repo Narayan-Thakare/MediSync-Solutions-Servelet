@@ -31,6 +31,17 @@ public class history extends HttpServlet {
         out.println("th { background-color: #f2f2f2; }");
         out.println("h1 { color: #333; }");
         out.println("a { text-decoration: none; color: #007BFF; }");
+        out.println(".back-button {");
+        out.println("  display: block;");
+        out.println("  width: 100px;");
+        out.println("  margin: 20px auto;");
+        out.println("  padding: 10px 15px;");
+        out.println("  text-align: center;");
+        out.println("  background-color: #007BFF;");
+        out.println("  color: #fff;");
+        out.println("  border-radius: 5px;");
+        out.println("  text-decoration: none;");
+        out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
@@ -48,6 +59,8 @@ public class history extends HttpServlet {
             ResultSet rs = null;
             PreparedStatement stmt = con.prepareStatement("SELECT * FROM medicine.med ORDER BY id DESC");
             rs = stmt.executeQuery();
+
+            out.println("<a href='index.html' class='back-button'>Back</a>");
 
             out.println("<table>");
             out.println("<tr>");
@@ -85,5 +98,6 @@ public class history extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
+
     }
 }

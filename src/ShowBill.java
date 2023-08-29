@@ -67,7 +67,7 @@ public class ShowBill extends HttpServlet {
 
             out.println("<table>");
             out.println("<tr>");
-            out.println("<th>ID</th>");
+          //  out.println("<th>ID</th>");
             out.println("<th>Medicine Name</th>");
             out.println("<th>Dr name</th>");
             out.println("<th>Quantity</th>");
@@ -80,7 +80,7 @@ public class ShowBill extends HttpServlet {
                 double itemTotal = rs.getDouble(6); // Get the "Total" value from the ResultSet
 
                 out.println("<tr>");
-                out.println("<td>" + id + "</td>");
+             //   out.println("<td>" + id + "</td>");
                 out.println("<td>" + rs.getString(2) + "</td>");
                 out.println("<td>" + rs.getString(3) + "</td>");
                 out.println("<td>" + rs.getString(4) + "</td>");
@@ -92,7 +92,7 @@ public class ShowBill extends HttpServlet {
             }
 
             out.println("<tr>");
-            out.println("<td colspan=\"5\">Total</td>");
+            out.println("<td colspan=\"4\">Total</td>");
             out.println("<td>" + total + "</td>");
             out.println("</tr>");
 

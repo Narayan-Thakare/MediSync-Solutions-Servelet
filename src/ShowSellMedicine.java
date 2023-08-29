@@ -14,117 +14,79 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ShowSellMedicine")
 public class ShowSellMedicine extends HttpServlet {
-		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-			response.setContentType("text/html");
-	        PrintWriter out = response.getWriter();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	        String idParam = request.getParameter("id");
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
 
-	        out.println("<!DOCTYPE html>");
-	        out.println("<html>");
-	        out.println("<head>");
-	        out.println("<title>Edit Record</title>");
-	        out.println("</head>");
-	        out.println("<body>");
-	        out.println("<h1>Edit Record</h1>");
+        String idParam = request.getParameter("id");
 
-	        Connection con = null;
-	        PreparedStatement stmt = null;
-	        ResultSet rs = null;
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Edit Record</title>");
+        // Adding some basic inline CSS for styling
+        out.println("<style>");
+        out.println("body { font-family: Arial, sans-serif; margin: 20px; }");
+        out.println("h1 { background-color: #333; color: #fff; padding: 10px; }");
+        out.println("label { font-weight: bold; }");
+        out.println("input[type='text'] { width: 100%; padding: 5px; margin-bottom: 10px; }");
+        out.println("input[type='submit'] { background-color: #333; color: #fff; padding: 10px 20px; border: none; cursor: pointer; }");
+        out.println("</style>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Edit Record</h1>");
 
-	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
 
-	            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-	            // Use an SQL query to select a record by ID
-	            stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE id = ?");
-	            stmt.setInt(1, Integer.parseInt(idParam));
-	            rs = stmt.executeQuery();
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicine", "root", "abc123");
 
-	            if (rs.next()) {
-	                String name = rs.getString("name");
-	                String brand = rs.getString("brand");
-	                int quantity = rs.getInt("quantity");
-	                double rate = rs.getDouble("rate");
-	                double total = quantity * rate;
+            // Use an SQL query to select a record by ID
+            stmt = con.prepareStatement("SELECT * FROM medicine.med WHERE id = ?");
+            stmt.setInt(1, Integer.parseInt(idParam));
+            rs = stmt.executeQuery();
 
-	                out.println("<form method='get' action='sellmedicine'>");
-	                out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
-	                out.println("<label>Name:</label>");
-	                out.println("<input type='text' name='name' value='" + name + "'><br>");
-	                out.println("<label></label>");
-	                out.println("<input type='hidden' name='brand' value='" + brand + "'><br>");
-	                out.println("<label>Quantity:</label>");
-	                out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
-	                
-	                out.println("<label>Sell Medicene</label>");
-	                out.println("<input type='text' name='sellmedicine'><br>");
-	                
-	                out.println("<label>Conform Quantity</label>");
-	                out.println("<input type='text' name='billquantity'><br>");
-	                
-	                out.println("<label></label>");
-	                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
-	                out.println("<label></label>");
-	                out.println("<input type='hidden' name='total' value='" + total + "'><br>");
-	                out.println("<input type='submit' value='Update'>");
-	                out.println("</form>");
-	                
-	              //////////////////////////////////////////////////////////////////  
-	                
-	                
-	              /*  out.println("<form method='get' action='AddOnBILL'>");
-	                out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
-	                out.println("<label>Name:</label>");
-	                out.println("<input type='hidden' name='name' value='" + name + "'><br>");
-	                out.println("<label></label>");
-	                out.println("<input type='hidden' name='brand' value='" + brand + "'><br>");
-	               // out.println("<label>Quantity:</label>");
-	              //  out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
-	                
-	                out.println("<label>Conform Quantity</label>");
-	                out.println("<input type='text' name='quantity'><br>");
-	                
-	                
-	                
-	                /////////////////////////////////////////////////////
-	                
-	                out.println("<label></label>");
-	                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
-	                out.println("<label></label>");
-	                out.println("<input type='hidden' name='total' value='" + total + "'><br>");
-	                out.println("<input type='submit' value='Add On Bill'>");
-	                out.println("</form>");
-	                */
-	                
-	                
-	                
-	                
-	                
-	                
-	            } else {
-	                out.println("Record not found.");
-	            }
-	        } catch (ClassNotFoundException | SQLException | NumberFormatException e) {
-	            e.printStackTrace();
-	        }
+            if (rs.next()) {
+                String name = rs.getString("name");
+                String brand = rs.getString("brand");
+                int quantity = rs.getInt("quantity");
+                double rate = rs.getDouble("rate");
+                double total = quantity * rate;
 
-	        out.println("</body>");
-	        out.println("</html>");
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	}
+                out.println("<form method='get' action='sellmedicine'>");
+                out.println("<input type='hidden' name='eid' value='" + idParam + "'>");
+                out.println("<label>Name:</label>");
+                out.println("<input type='text' name='name' value='" + name + "'><br>");
+                out.println("<label></label>");
+                out.println("<input type='hidden' name='brand' value='" + brand + "'><br>");
+                out.println("<label>Quantity:</label>");
+                out.println("<input type='text' name='quantity' value='" + quantity + "'><br>");
 
+                out.println("<label>Sell Medicine</label>");
+                out.println("<input type='text' name='sellmedicine'><br>");
+
+                out.println("<label>Confirm Quantity</label>");
+                out.println("<input type='text' name='billquantity'><br>");
+
+                out.println("<label></label>");
+                out.println("<input type='hidden' name='rate' value='" + rate + "'><br>");
+                out.println("<label></label>");
+                out.println("<input type='hidden' name='total' value='" + total + "'><br>");
+                out.println("<input type='submit' value='Add On Bill'>");
+                out.println("</form>");
+            } else {
+                out.println("Record not found.");
+            }
+        } catch (ClassNotFoundException | SQLException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        out.println("</body>");
+        out.println("</html>");
+    }
 }

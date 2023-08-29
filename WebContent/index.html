@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <title>Medicine Dashboard</title>
     <style>
-        /* Reset some default styles */
-        body, h1, h2, form {
-            margin: 0;
-            padding: 0;
-        }
-
         /* Global styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-image: url(https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
             margin: 0;
         }
 
-        /* Header styles */
         .header {
-            background-color: #007bff;
+            background-color: skyblue;
             color: #mnp;
             padding: 10px 0;
             text-align: center;
@@ -30,7 +25,6 @@
             font-size: 36px;
         }
 
-        /* Container styles */
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -40,7 +34,6 @@
             overflow: hidden;
         }
 
-        /* Dashboard grid styles */
         .dashboard {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -48,7 +41,6 @@
             padding: 20px;
         }
 
-        /* Dashboard item styles */
         .dashboard-item {
             padding: 20px;
             background-color: #f8f8f8;
@@ -60,7 +52,7 @@
         }
 
         .dashboard-item:hover {
-            background-color: #fff;
+            background-color: skyblue;
         }
 
         .dashboard-item h2 {
@@ -68,7 +60,6 @@
             margin-bottom: 15px;
         }
 
-        /* Form styles */
         form {
             margin-top: 15px;
         }
@@ -96,17 +87,19 @@
 
         .btn-primary {
             padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
+            background-color: pink;
+            color: #mnp;
             border: none;
-            border-radius: 3px;
+            border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
+            background-color: lightyellow;
         }
+        
+        
     </style>
 </head>
 <body>
@@ -122,13 +115,16 @@
                 <form action="AddMed" method="GET">
                     <input type="submit" value="Add Medicine" class="btn-primary">
                 </form>
+                <form action="Show" method="GET">
+                    <input type="submit" value="Show Medicine" class="btn-primary">
+                </form>
+                <form action="history" method="GET">
+                    <input type="submit" value="Medicine History" class="btn-primary">
+                </form>
             </div>
             <div class="dashboard-item">
-                <h2>Actions</h2>
-                <form action="Show" method="GET">
-                    <input type="submit" value="Show Data" class="btn-primary">
-                </form>
-                <form action="SearchData" method="GET">
+                <h2>Search Medicine</h2>
+                <form action="SearchData" method="GET" id="searchForm">
                     <label for="searchname">Search Product</label>
                     <input type="text" id="searchname" name="searchname" required>
                     <input type="submit" value="Search" class="btn-primary">
@@ -136,20 +132,14 @@
                 <form action="OutOfStock" method="GET">
                     <input type="submit" value="Out Of Stock" class="btn-primary">
                 </form>
-                <form action="history" method="GET">
-                    <input type="submit" value="Medicine History" class="btn-primary">
-                </form>
             </div>
             <div class="dashboard-item">
-                <h2>Shopping Cart</h2>
+                <h2>Medicine Cart</h2>
                 <form action="CartForm" method="GET">
                     <input type="submit" value="Add to Cart" class="btn-primary">
                 </form>
                 <form action="ShowCart" method="GET">
                     <input type="submit" value="Show Cart" class="btn-primary">
-                </form>
-                <form action="ClientHistory" method="GET">
-                    <input type="submit" value="Client History" class="btn-primary">
                 </form>
             </div>
             <div class="dashboard-item">
@@ -157,8 +147,24 @@
                 <form action="ShowBill" method="GET">
                     <input type="submit" value="Show Bill" class="btn-primary">
                 </form>
+                <form action="ClientHistory" method="GET">
+                    <input type="submit" value="Client History" class="btn-primary">
+                </form>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchForm = document.querySelector("#searchForm");
+
+            searchForm.addEventListener("submit", function (event) {
+                const searchInput = document.querySelector("#searchname");
+                if (searchInput.value.trim() === "") {
+                    event.preventDefault(); // Prevent form submission
+                    alert("Please enter a search term.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
