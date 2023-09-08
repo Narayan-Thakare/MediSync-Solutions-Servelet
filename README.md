@@ -4,5 +4,5 @@
 ![Screenshot 2023-08-31 231504](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/9ebcb350-8695-49ff-9bce-e24d0c09c914)
 # ADD MEDICINE
 ![Screenshot 2023-09-01 210534](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/6f75f749-f929-48fc-9c92-120b8d51efcc)
-
-
+# MEDICINE HISTORY
+![Screenshot 2023-09-08 154405](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/f8c22e44-acbc-4455-8cd6-250c678f32af)
