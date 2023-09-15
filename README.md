@@ -7,3 +7,5 @@
 # If i search on cr _The medicine related has been shown 
 ![Screenshot 2023-09-15 213214](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/c56ed61e-564a-492e-a94e-accfc9e2ade3)
 ![Screenshot 2023-09-15 213429](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/5254ae86-d816-455c-ad11-940bf1b523c1)
+# Out of Stock Data ---- If quantity less than 5
+![Screenshot 2023-09-15 213533](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/a15af4e2-8fae-48c6-b592-f15b99b6be53)
