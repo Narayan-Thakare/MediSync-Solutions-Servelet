@@ -9,3 +9,5 @@
 ![Screenshot 2023-09-15 213429](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/5254ae86-d816-455c-ad11-940bf1b523c1)
 # Out of Stock Data ---- If quantity less than 5
 ![Screenshot 2023-09-15 213533](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/a15af4e2-8fae-48c6-b592-f15b99b6be53)
+When i click on Sell Medicine
+![Screenshot 2023-09-15 214432](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/ad2d4fba-98d5-411b-9764-ff433ab9e047)
