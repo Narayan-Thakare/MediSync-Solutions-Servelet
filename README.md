@@ -37,6 +37,12 @@ When i click on Sell Medicine
 ![Screenshot 2023-09-15 214432](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/ad2d4fba-98d5-411b-9764-ff433ab9e047)
 When i click on Sell Medicine
 ![Screenshot 2023-09-15 214432](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/ad2d4fba-98d5-411b-9764-ff433ab9e047)
+When i click on Sell Medicine
+![Screenshot 2023-09-15 214432](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/ad2d4fba-98d5-411b-9764-ff433ab9e047)
+
+When i click on Sell Medicine
+![Screenshot 2023-09-15 214432](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/ad2d4fba-98d5-411b-9764-ff433ab9e047)
+
 
 
 
