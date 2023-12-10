@@ -1,3 +1,7 @@
+DATA BASE
+![Screenshot 2023-12-10 235226](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/9de51d37-e417-40fd-9756-3303dd983fe4)
+
+
 # WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT
 ![Screenshot 2023-08-30 232836](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/9640f91d-3fed-4ee8-a198-085909850d3b)
 # SHOW MEDICINE
