@@ -1,6 +1,7 @@
 #DATA BASE
 ![Screenshot 2023-12-10 235226](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/9de51d37-e417-40fd-9756-3303dd983fe4)
 ![Screenshot 2023-12-10 235243](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/819b7995-c1ec-46e8-87c8-98b6919ceec5)
+![Screenshot 2023-12-11 215709](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/52fb259e-2910-4c3f-84cc-59f9c9b69a0e)
 
 
 # WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT
