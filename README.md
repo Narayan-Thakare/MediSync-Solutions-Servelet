@@ -19,7 +19,8 @@
 ![Screenshot 2023-09-15 213533](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/a15af4e2-8fae-48c6-b592-f15b99b6be53)
 When i click on Sell Medicine
 ![Screenshot 2023-09-15 214432](https://github.com/Narayan-Thakare/WEB-SERVELET-MEDICINE-MANAGEMENT-PROJECT/assets/113063658/ad2d4fba-98d5-411b-9764-ff433ab9e047)
-//////
+
+![Screenshot 2023-12-14 105159](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/bd3126fa-5e66-47a2-bddd-7df119b7fce3)
 
 
 
