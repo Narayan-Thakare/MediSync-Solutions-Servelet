@@ -23,7 +23,9 @@ When i click on show bill
 
 ![Screenshot 2023-12-14 105159](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/bd3126fa-5e66-47a2-bddd-7df119b7fce3)
 
+and we put the data of client 
 
+![Screenshot 2023-12-14 105226](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/b94133d1-2454-4877-a905-b401afc305b0)
 
 
 
