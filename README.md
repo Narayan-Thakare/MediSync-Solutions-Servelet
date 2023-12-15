@@ -27,6 +27,8 @@ and we put the data of client
 
 ![Screenshot 2023-12-14 105226](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/b94133d1-2454-4877-a905-b401afc305b0)
 
+![Screenshot 2023-12-15 231800](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/a55c2cbc-fa24-4bfe-a1c3-09f282f7daca)
+
 
 
 
