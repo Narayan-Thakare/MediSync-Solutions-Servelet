@@ -30,6 +30,7 @@ When we click on Client History
 
 ![Screenshot 2023-12-15 231800](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/a55c2cbc-fa24-4bfe-a1c3-09f282f7daca)
 
+![Screenshot 2023-12-15 231815](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/6037833f-89af-408f-a421-290693bb6118)
 
 
 
