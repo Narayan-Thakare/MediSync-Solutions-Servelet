@@ -32,6 +32,8 @@ When we click on Client History
 When we click on Costumer Demand
 ![Screenshot 2023-12-15 231815](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/6037833f-89af-408f-a421-290693bb6118)
 
+When we click on Show Costumer Demands
+
 
 
 
