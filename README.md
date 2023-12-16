@@ -23,17 +23,18 @@ When i click on show bill
 
 ![Screenshot 2023-12-14 105159](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/bd3126fa-5e66-47a2-bddd-7df119b7fce3)
 
-and we put the data of client 
+#and we put the data of client 
 
 ![Screenshot 2023-12-14 105226](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/b94133d1-2454-4877-a905-b401afc305b0)
-When we click on Client History
+#When we click on Client History
 
 ![Screenshot 2023-12-15 231800](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/a55c2cbc-fa24-4bfe-a1c3-09f282f7daca)
-When we click on Costumer Demand
+#When we click on Costumer Demand
 ![Screenshot 2023-12-15 231815](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/6037833f-89af-408f-a421-290693bb6118)
 
-When we click on Show Costumer Demands
+#When we click on Show Costumer Demands
 
+![Screenshot 2023-12-16 122419](https://github.com/Narayan-Thakare/MediSync-Solutions-Servelet/assets/113063658/6b50f49f-f2b0-4b5e-ba76-c9c70af50f9d)
 
 
 
